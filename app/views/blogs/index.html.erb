@@ -1,0 +1,24 @@
+<% if !notice.nil? %>
+  <div class="alert alert-success">
+    <p><%= notice %></p>
+  </div>
+<% end %>
+
+<h1>Liste des blogs</h1>
+<%= link_to "Nouveau poste", new_blog_path, method: :get, class: "btn btn-primary" %>
+<table class="table table-striped">
+  <tr>
+    <th scope="col">Titre (détail)</th>
+    <th scope="col">date et heure de la mise à jour</th>
+    <th scope="col">édition</th>
+    <th scope="col">suppression</th>
+  </tr>
+  <% @blogs.each do |blog| %>
+    <tr>
+      <td><%= link_to blog.title, blog_path(blog.id) %></td>
+      <td><%= blog.updated_at.to_s(:datetime) %></td>
+      <td><%= link_to "édition", edit_blog_path(blog.id) %></td>
+      <td><%= link_to "suppression", blog_path(blog.id), method: :delete, data: {confirm: "Vous l'avez vraiment supprimé ?"}  %></td>
+    </tr>
+  <% end %>
+</table>

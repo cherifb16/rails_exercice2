@@ -1,0 +1,16 @@
+<h1>Détail</h1>
+<div class="title">
+  <h5>Titre</h5>
+  <p><%= @blog.title %></p>
+</div>
+<div class="content">
+  <h5>Content</h5>
+  <p class="word-limit"><%= @blog.content %></p>
+</div>
+<div class= "updated_at">
+  <p>Mis à jour le : <%= @blog.updated_at.to_s(:datetime)%></p>
+</div>
+<br>
+<%= link_to "édition", edit_blog_path, class: "btn btn-primary" %>
+<%= link_to "suppression", blog_path(@blog.id), class: "btn btn-danger", method: :delete, data: {confirm: "Voulez-vous vraiment le supprimer ?"} %>
+<%= link_to "vérifier les détails ", blogs_path, class: "btn btn-success" %>

@@ -1,0 +1,16 @@
+<h1>écran de confirmation</h1>
+<%= form_with model: @blog, url: blogs_path, local: true do |form| %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :content %>
+  <div class="title">
+    <h5>"Titre"</h5>
+    <p><%= @blog.title %></p>
+  </div>
+  <br>
+  <div class="Content">
+    <h5>"Contenu (140 caractères maximum)".</h5>
+    <p><%= @blog.content %></p>
+  </div>
+  <%= form.submit "soumission", class: "btn btn-danger" %>
+  <%= form.submit "retourner", name: "back", class: "btn btn-success" %>
+<% end %>

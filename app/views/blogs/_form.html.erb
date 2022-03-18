@@ -1,0 +1,12 @@
+<%= form_with model: @blog, url: choose_new_or_edit, local: true do |form| %>
+  <div class="title">
+    <h5><%= form.label :title, "Title" %></h5>
+    <p><%= form.text_field :title %></p>
+  </div>
+  <br>
+  <div class="content">
+    <h5><%= form.label :content, "Contenu (140 mots ou moins))" %></h5>
+    <p><%= form.text_area :content %></p>
+  </div>
+  <p><%= form.submit "soumission", class: "btn btn-warning" %></p>
+<% end %>
